@@ -431,7 +431,7 @@ EAS_RESULT SMF_Close (S_EAS_DATA *pEASData, EAS_VOID_PTR pInstData)
     /* close all the streams */
     for (i = 0; i < pSMFData->numStreams; i++)
     {
-        if (pSMFData->streams[i].fileHandle != NULL)
+        if (pSMFData->streams && pSMFData->streams[i].fileHandle != NULL)
         {
             if ((result = EAS_HWCloseFile(pEASData->hwInstData, pSMFData->streams[i].fileHandle)) != EAS_SUCCESS)
                 return result;
